@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<body>
+<h1>Index</h1>
+
+<p>
+  <a href="/create">Create New</a>
+</p>
+<form action="/movies" method="get">
+  <p>
+    <select name="genre">
+      <option value="">All</option>
+      <c:forEach items="${genres}" var="genre">
+        <option value="${genre}">${genre}</option>
+      </c:forEach>
+    </select>
+
+    Title: <input type="text" name="searchString" />
+    <input type="submit" value="Filter" />
+  </p>
+</form>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Release Date</th>
+    <th>Genre</th>
+    <th>Price</th>
+    <th>Rating</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <c:forEach items="${movies}" var="movie">
+    <tr>
+      <td>${movie.title}</td>
+      <td>${movie.releaseDate}</td>
+      <td>${movie.genre}</td>
+      <td>${movie.price}</td>
+      <td>${movie.rating}</td>
+      <td>
+        <a href="/edit/${movie.id}">Edit</a> |
+        <a href="/details/${movie.id}">Details</a> |
+        <a href="/delete/${movie.id}" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
+      </td>
+    </tr>
+  </c:forEach>
+  </tbody>
+</table>
+</body>
+</html>
