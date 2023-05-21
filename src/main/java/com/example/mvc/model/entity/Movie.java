@@ -1,4 +1,4 @@
-package com.example.mvc.model;
+package com.example.mvc.model.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,11 +14,11 @@ import jakarta.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="movies")
+@Table
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(nullable = false, length = 60)
     @Size(min = 3, max = 60)

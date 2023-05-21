@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.example.mvc.MovieRepository;
+import com.example.mvc.model.entity.Movie;
+import com.example.mvc.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

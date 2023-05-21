@@ -1,6 +1,6 @@
 package com.example.mvc.model;
 
-import com.example.mvc.model.Movie;
+import com.example.mvc.model.entity.Movie;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,10 +1,11 @@
-package com.example.mvc;
+package com.example.mvc.repository;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.example.mvc.model.Movie;
+import com.example.mvc.model.entity.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 @Repository

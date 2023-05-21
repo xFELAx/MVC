@@ -1,4 +1,4 @@
-package com.example.mvc;
+package com.example.mvc.configuration;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,21 +25,13 @@ public class MvcMovieConfig implements WebMvcConfigurer {
     @Autowired
     private Environment env;
 
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        dataSource.setUrl(env.getProperty("spring.datasource.url"));
-        dataSource.setUsername(env.getProperty("spring.datasource.username"));
-        dataSource.setPassword(env.getProperty("spring.datasource.password"));
-
-        return dataSource;
-    }
+    @Autowired
+    private DataSource dataSource;
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(dataSource());
+        em.setDataSource(dataSource);
         em.setPackagesToScan(new String[] { "com.example.mvcmovie.models" });
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();

@@ -2,11 +2,10 @@ package com.example.mvc.controller;
 
 import java.util.List;
 
-import com.example.mvc.MovieRepository;
-import com.example.mvc.model.Movie;
+import com.example.mvc.repository.MovieRepository;
+import com.example.mvc.model.entity.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,7 +46,9 @@ public class MovieController {
 
     @GetMapping("/create")
     public ModelAndView create() {
-        return new ModelAndView("create");
+
+        Movie movie = new Movie();
+        return new ModelAndView("movie", "movie", movie);
     }
 
     @PostMapping("/create")
